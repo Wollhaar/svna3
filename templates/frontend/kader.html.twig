@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block title %}Kader{% endblock %}
+
+{% block content %}
+    <h2>Der Kader</h2>
+		{% block kader_list %}
+		<table name="kader">
+			<tr>
+				<td class="numbers">Rückennr</td>
+				<td>Nachname</td>
+				<td>Vorname</td>
+				<td>Position</td>
+			</tr>
+			{# {% foreach(player in players) %} #}
+			<tr>
+				{# <td class="numbers">{{ player.number }}</td>               #}
+				{# <td>{{ player.lastname }}</td>                             #}
+				{# <td>{{ player.firstname }}</td>                            #}
+				{# <td>{{ player.position }}</td>                             #}
+			</tr>
+			{# {% endforeach %} #}
+		</table>
+	{% endblock %}
+{% endblock %}

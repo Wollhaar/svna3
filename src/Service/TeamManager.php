@@ -1,28 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
-namespace App\class;
+namespace App\Service;
 
-require_once 'class/Team.php';
-require_once 'class/DBManager.php';
-
-class TeamManager
+class TeamManager //TODO: resolve method savePoints() in Controller or another way
 {
-    const table = 'teams';
-    private $dbh = null;
-
-    public function __construct()
-    {
-        $this->dbh = DBManager::getInstance()->getConnection();
-    }
-
-    public function getTeams()
-    {
-        $sql = 'SELECT * FROM ' . self::table . ' ORDER BY place';
-        $stmt = $this->dbh->query($sql);
-        $allTeams = $stmt->fetchAll();
-        return $allTeams;
-    }
-
     public function savePoints($team, $match, $result)
     {
         for ($i = 0; $i == 1; $i++) {
@@ -91,15 +72,6 @@ class TeamManager
                 $teamDB->getPoints()
             ));
         }
-    }
-
-    public function getTeam($id)
-    {
-        $sql = 'SELECT * FROM ' . self::table . ' WHERE teamid = ?';
-        $stmt = $this->dbh->prepare($sql);
-        $stmt->execute(array($id));
-        $team = $stmt->fetchAll();
-        return $team;
     }
 
 }
